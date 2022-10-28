@@ -478,6 +478,17 @@ export const searchMe = (entity, queryString, mergeResults = false) =>
       })
   );
 
+ /**
+ * @function
+ * @description Generates POST requests from the employer's side.
+ * @since 10.28.22 by Paola Sanchez
+ * @author Paola Sanchez
+ * @requires Flux
+ * @requires WEngine
+ * @param {string} entity - Name/Type of POST request (ex: "ratings", "clockins", "shifts", "venues", "payment")
+ * @param {object} data - Contains information needed for the POST request.
+ * @param {string} status - Optional information for payroll purposes (ex: "APPROVED")
+ */
 export const create = (entity, data, status = WEngine.modes.LIVE) =>
   new Promise((resolve, reject) => {
     POST("employers/me/" + (entity.url || entity), data)
